@@ -3,13 +3,21 @@ import Header from '@/components/Header'
 import BackNavigation from '@/components/BackNavigation'
 import products from '../../json/products.json'
 
-export default function Home() {
-  // const images = import.meta.glob('../../assets/*', { eager: true });
+// Import your images at the top of the file
+import iphone16 from '../../assets/images/iphone16.png';
+import macbook from '../../assets/images/macbook.png';
+import googlepixel from '../../assets/images/googlepixel.png';
+import airpods from '../../assets/images/airpods.png';
 
-  // const getImage = (filename) => {
-  //   const entry = Object.entries(images).find(([key]) => key.includes(filename));
-  //   return entry ? entry[1].default : '';
-  // };
+// Create an image mapping object
+const imageMap = {
+  'iphone16.png': iphone16,
+  'macbook.png': macbook,
+  'googlepixel.png': googlepixel,
+  'airpods.png': airpods
+};
+
+export default function Home() {
 
   return (
     <>
@@ -19,7 +27,10 @@ export default function Home() {
         goToHome={true}  // Optional press handler
       />
 
-      <Text style={homeStyles.smartphoneTxt}>Smartphones, Laptops & Assecories</Text>
+      <View style={homeStyles.smartphoneTxtBox}>
+        <Text style={homeStyles.smartphoneTxt}>Smartphones, Laptops & Assecories</Text>
+      </View>
+      
 
       <View style={homeStyles.productContainer}>
         {products.map((product, key) => (
@@ -30,7 +41,7 @@ export default function Home() {
               activeOpacity={0.7}
             >
               <ImageBackground 
-                source={product.image} 
+                source={imageMap[product.image]} 
                 resizeMode="cover" 
                 style={homeStyles.productImage}
               />
@@ -46,6 +57,10 @@ export default function Home() {
 }
 
 const homeStyles = StyleSheet.create({
+  smartphoneTxtBox:{
+    width: "100%",
+    backgroundColor: "white"
+  },
   smartphoneTxt:{
     width: 254,
     height: 46,
@@ -53,7 +68,8 @@ const homeStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 500,
     fontFamily: "IBMPlexSans-Medium",
-    color: "rgba(0, 0, 0, 1)"
+    color: "rgba(0, 0, 0, 1)",
+    backgroundColor: "white"
   },
   productContainer:{
     width: 374,
@@ -62,7 +78,7 @@ const homeStyles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: "red",
+    backgroundColor: "white",
     display: "flex",
     gap: 10,
     flexWrap: "wrap"

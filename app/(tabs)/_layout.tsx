@@ -19,7 +19,7 @@ export default function TabLayout() {
           tabBarStyle:{
             backgroundColor: "rgba(255, 255, 255, 0.95)",
             borderTopWidth: 0,
-            position: "absolute",
+            position: "fixed",
             elevation: 0,
             height: 90,
             // display: "flex",
