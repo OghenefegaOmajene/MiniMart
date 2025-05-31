@@ -14,7 +14,7 @@ export const CartIconActive = () => (
       alignItems: "center"
     }}
   >
-    <Svg width={20} height={22} viewBox="0 0 24 24" fill="none">
+    <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
       <Path
         d="M8 16H15.263C19.751 16 20.433 13.18 21.261 9.07C21.5 7.883 21.619 7.29 21.332 6.895C21.045 6.5 20.495 6.5 19.394 6.5H6"
         stroke="white"

@@ -15,22 +15,30 @@ export default function TabLayout() {
   return (
     <Tabs
         screenOptions={{
-            tabBarShowLabel: false,
-            headerShown: false,
-            tabBarStyle:{
-                backgroundColor: "rgba(255, 255, 255, 0.95)",
-                borderTopWidth: 0,
-                position: "absolute",
-                elevation: 0,
-                height: 90,
-                paddingBottom: 8,
-            }
+          headerShown: false,
+          tabBarStyle:{
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            borderTopWidth: 0,
+            position: "absolute",
+            elevation: 0,
+            height: 90,
+            // display: "flex",
+            // gap: 4,
+            // paddingBottom: 8,
+          },
+          tabBarLabelStyle: {
+            fontFamily: "IBMPlexSans-Medium",
+            fontSize: 12,
+            fontWeight: 500,
+          },
+          tabBarActiveTintColor: "#60b5ff",
+          tabBarInactiveTintColor: "#49454F",
             // tabBarActiveTintColor: Colors.primary
         }}
     >
 
         <Tabs.Screen 
-            name="HomePage"
+            name="Home"
             options={{
               tabBarIcon: ({ focused }) =>
               focused ? <HomeIconActive /> : <HomeIcon />,
