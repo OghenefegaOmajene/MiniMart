@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, ImageBackground, TextInput } from 'react-native'
 import React from 'react';
 import notificationIcon from '../assets/images/notificationIcon.png';
-import searchIcon from '../assets/images/search.png';
+import Search from './Search';
 
 export default function Header() {
   return (
@@ -26,11 +26,8 @@ export default function Header() {
         </View>
 
       </View>
-
-        <View style={styles.search}>
-            <ImageBackground source={searchIcon} resizeMode="cover" style={styles.searchIcon}/>
-            <TextInput placeholder="Search..." style={styles.searchInput}/>
-        </View>
+      
+      <Search></Search>
     </View>
   )
 }
@@ -108,29 +105,5 @@ const styles = StyleSheet.create({
   umezikeTxt: {
     color: "rgba(51, 65, 85, 1)"
   },
-
-  search: {
-    width: 343,
-    height: 36,
-    borderRadius: 5,
-    padding: 8,
-    gap: 8,
-    display: "flex",
-    flexDirection: "row",
-    borderWidth: 1,
-    borderColor: "rgba(226, 232, 240, 1)"
-  },
-  searchIcon: {
-    width: 20,
-    height: 20
-  },
-  searchInput: {
-    width: 299,
-    height: 20,
-    fontFamily: "IBMPlexSans-Medium",
-    color: "rgba(203, 213, 225, 1)",
-    fontSize: 14, 
-    fontWeight: 400
-    }
   
 });
