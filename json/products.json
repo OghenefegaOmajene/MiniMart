@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "image": "iphone16.png",
+        "name": "Apple iPhone 16 128GB|Teal",
+        "price": 700.00
+    },
+    {
+        "id": 2,
+        "image": "macbook.png",
+        "name": "M4 Macbook Air 13|Sky blue",
+        "price": 1000.00
+    },
+    {
+        "id": 3,
+        "image": "googlepixel.png",
+        "name": "Google Pixel 9A 128GB|Iris",
+        "price": 499.00
+    },
+    {
+        "id": 4,
+        "image": "airpods.png",
+        "name": "Apple Airpods 4 Active Noise Cancellation",
+        "price": 129.00
+    }
+]
