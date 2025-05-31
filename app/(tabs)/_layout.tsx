@@ -1,8 +1,14 @@
 import { View, Text } from 'react-native'
 import { Tabs } from 'expo-router'
 import {Ionicons} from "@expo/vector-icons"
-import { HomeIcon } from "@/components/icons/HomeIcon";
-import { HomeIconActive } from "@/components/icons/HomeIconActive";
+import { HomeIcon } from "../../components/icons/HomeIcon";
+import { HomeIconActive } from "../../components/icons/HomeIconActive";
+import { CartIcon } from "../../components/icons/CartIcon";
+import { CartIconActive } from "../../components/icons/CartIconActive";
+import { FavoriteIconActive } from '@/components/icons/FavoriteIconActive';
+import { FavoriteIcon } from '@/components/icons/FavoriteIcon';
+import { ProfileIconActive } from '@/components/icons/ProfileIconActive';
+import { ProfileIcon } from '@/components/icons/ProfileIcon';
 // import {COLORS} from "@/constants/theme"
 
 export default function TabLayout() {
@@ -26,26 +32,30 @@ export default function TabLayout() {
         <Tabs.Screen 
             name="HomePage"
             options={{
-                tabBarIcon: ({size, color}) => <Ionicons name="home" size={size} color={color}/>
+              tabBarIcon: ({ focused }) =>
+              focused ? <HomeIconActive /> : <HomeIcon />,
             }}
         />
 
         <Tabs.Screen 
             name="Cart"
             options={{
-                tabBarIcon: ({size, color}) => <Ionicons name="add-outline" size={size} color={color}/>
+              tabBarIcon: ({ focused }) =>
+              focused ? <CartIconActive /> : <CartIcon />,
             }}
         />
         <Tabs.Screen 
             name="Favorites"
             options={{
-                tabBarIcon: ({size, color}) => <Ionicons name="chatbox-ellipses-outline" size={size} color={color}/>
+              tabBarIcon: ({ focused }) =>
+              focused ? <FavoriteIconActive /> : <FavoriteIcon />,
             }}
         />
         <Tabs.Screen 
             name="Profile"
             options={{
-                tabBarIcon: ({size, color}) => <Ionicons name="person-circle-outline" size={size} color={color}/>
+              tabBarIcon: ({ focused }) =>
+              focused ? <ProfileIconActive /> : <ProfileIcon />,
             }}
         />
     </Tabs>
