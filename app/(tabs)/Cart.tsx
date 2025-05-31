@@ -5,7 +5,7 @@ import BackNavigation from '@/components/BackNavigation'
 export default function Cart() {
   return (
     <>
-        <Header></Header>
+        <Header showSearch={false} />
         <BackNavigation 
             text="Your Cart"  // Required string prop
             goToHome={true}  // Optional press handler

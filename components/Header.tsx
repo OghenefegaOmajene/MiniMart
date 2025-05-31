@@ -3,7 +3,7 @@ import React from 'react';
 import notificationIcon from '../assets/images/notificationIcon.png';
 import Search from './Search';
 
-export default function Header() {
+export default function Header({ showSearch = true }: { showSearch?: boolean }) {
   return (
     <View style={styles.Header}>
 
@@ -27,7 +27,7 @@ export default function Header() {
 
       </View>
       
-      <Search></Search>
+      {showSearch && <Search />}
     </View>
   )
 }
