@@ -77,9 +77,9 @@ const imageMap = {
 
 export default function Home() {
   const router = useRouter();
-  const setFavorite = useFavorites((state) => state.setFavorite);
+  const setFavorite = useFavorites((state: { setFavorite: any; }) => state.setFavorite);
 
-  const handleProductClick = (product) => {
+  const handleProductClick = (product: { id: number; image: string; name: string; price: number; }) => {
     setFavorite(product);
     router.push('/(tabs)/Favorites'); // 👈 Navigate to Favorites tab
   };

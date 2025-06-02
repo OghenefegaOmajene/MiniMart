@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { Tabs } from 'expo-router'
 import {Ionicons} from "@expo/vector-icons"
 import { HomeIcon } from "../../components/icons/HomeIcon";
@@ -36,6 +36,11 @@ export default function TabLayout() {
             // tabBarActiveTintColor: Colors.primary
         }}
     >
+        {/* <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={() => alert('Added to Cart')}>
+            <Text style={styles.buttonText}>Add to Cart</Text>
+          </TouchableOpacity>
+        </View> */}
 
         <Tabs.Screen 
             name="Home"
@@ -69,3 +74,29 @@ export default function TabLayout() {
     </Tabs>
   )
 }
+
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  backgroundColor: 'white',
+  padding: 20,
+  borderTopWidth: 1,
+  borderColor: '#e0e0e0',
+},
+addToCartButton: {
+  backgroundColor: '#60b5ff',
+  paddingVertical: 15,
+  borderRadius: 10,
+  alignItems: 'center',
+},
+buttonText: {
+  color: 'white',
+  fontSize: 16,
+  fontWeight: 'bold',
+},
+
+})
