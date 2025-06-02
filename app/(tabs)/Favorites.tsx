@@ -20,21 +20,11 @@
 //   )
 // }
 
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import Header from '@/components/Header';
 import BackNavigation from '@/components/BackNavigation';
 import { useFavorites } from '@/store/useFavorites';
-import iphone16 from '../../assets/images/iphone16.png';
-import macbook from '../../assets/images/macbook.png';
-import googlepixel from '../../assets/images/googlepixel.png';
-import airpods from '../../assets/images/airpods.png';
-
-const imageMap = {
-  'iphone16.png': iphone16,
-  'macbook.png': macbook,
-  'googlepixel.png': googlepixel,
-  'airpods.png': airpods
-};
+import iphone16Select from '../../assets/images/iphone16Select.png';
 
 export default function Favorites() {
   const favorite = useFavorites((state) => state.favorite);
@@ -43,19 +33,23 @@ export default function Favorites() {
     <>
       <Header showSearch={false} />
       <BackNavigation text="Go Back" goToHome={true} />
-      <View style={productDetailsStyles.productDetailsContainer}>
+      <ScrollView style={productDetailsStyles.productDetailsContainer}>
         <View style={productDetailsStyles.productDetails}>
           {favorite ? (
             <>
-              <Image source={imageMap[favorite.image]} style={{ width: 200, height: 200, borderRadius: 10 }} />
-              <Text style={{ fontSize: 18, fontFamily: 'IBMPlexSans-Medium', color: 'white' }}>{favorite.name}</Text>
-              <Text style={{ fontSize: 16, fontFamily: 'IBMPlexSans-Medium', color: 'white' }}>${favorite.price}</Text>
+              <Image source={iphone16Select} style={productDetailsStyles.productDetailsImg} />
+              <Text style={productDetailsStyles.productName}>{favorite.name}</Text>
+              <Text style={productDetailsStyles.productPrice}>${favorite.price}</Text>
             </>
           ) : (
             <Text style={{ color: 'white' }}>No product selected.</Text>
           )}
         </View>
-      </View>
+
+        <View style={productDetailsStyles.productDetailsTxtBox}>
+          <Text style={productDetailsStyles.productDetailsTxt}>About this item</Text>
+        </View>
+      </ScrollView>
     </>
   );
 }
@@ -80,6 +74,34 @@ const productDetailsStyles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     gap: 10.58,
-    backgroundColor: "black"
+    // backgroundColor: "black"
+  },
+  productDetailsImg:{
+    width: 334,
+    height: 331.6,
+    borderRadius: 15
+  },
+  productName:{
+    fontFamily: "IBMPlexSans-Medium",
+    color: "rgba(0, 0, 0, 1)",
+    fontWeight: 400,
+    fontSize: 17
+  },
+  productPrice: {
+    fontFamily: "IBMPlexSans-Medium",
+    color: "rgba(0, 0, 0, 1)",
+    fontWeight: 700,
+    fontSize: 32.75
+  },
+  productDetailsTxtBox:{
+    height: 394,
+    width: 334,
+    backgroundColor: "coral"
+  },
+  productDetailsTxt:{
+    color: "rgba(153, 153, 153, 1)",
+    fontFamily: "IBMPlexSans-Medium",
+    fontWeight: 400,
+    fontSize: 14
   }
 })
