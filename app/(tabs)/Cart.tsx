@@ -1,10 +1,19 @@
 import Header from '@/components/Header'
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native'
 import BackNavigation from '@/components/BackNavigation'
 import iphone16 from '../../assets/images/iphone16Select.png';
 import Button from '@/components/Button';
+import AddToCartNotification from '@/components/AddToCartNotification';
 
 export default function Cart() {
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleAddToCart = () => {
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
+  };
+
   return (
     <>
         <Header showSearch={false} />
@@ -26,13 +35,26 @@ export default function Cart() {
           </View>
         </View>
 
-        <Button btnName='Checkout'></Button>
+        {showNotification && (
+          <View style={cartStyles.notificationWrapper}>
+            <AddToCartNotification onClose={() => setShowNotification(false)} />
+          </View>
+        )}
+        <Button btnName='Checkout' onPress={handleAddToCart}></Button>
         
     </>
   )
 }
 
 const cartStyles = StyleSheet.create({
+  notificationWrapper: {
+    position: 'absolute',
+    // bottom: 110,
+    top: 60,
+    left: 20,
+    right: 20,
+    alignItems: 'center',
+  },
   cart:{
     width: 374,
     height: 540,

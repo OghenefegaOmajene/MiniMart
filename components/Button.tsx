@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function Button(props: { btnName: string }) {
+export default function Button(props: { btnName: string; onPress: () => void }) {
   return (
     <View style={buttonStyles.buttonContainer}>
-        <TouchableOpacity style={buttonStyles.button} onPress={() => alert('Added to Cart')}>
+        <TouchableOpacity style={buttonStyles.button} onPress={props.onPress}>
           <Text style={buttonStyles.buttonTxt}>{props.btnName}</Text>
         </TouchableOpacity>
     </View>
@@ -18,10 +18,11 @@ const buttonStyles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     backgroundColor: "white",
     position: "fixed",
-    bottom: 0
+    bottom: 0,
+    paddingTop: 10
   },
   button: {
     backgroundColor: "rgba(96, 181, 255, 1)",
