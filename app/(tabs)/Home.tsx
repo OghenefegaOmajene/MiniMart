@@ -47,7 +47,7 @@ export default function Home() {
                 />
               </TouchableOpacity>
               <Text style={homeStyles.productName}>{product.name}</Text>
-              <Text style={homeStyles.productPrice}>${product.price}</Text>
+              <Text style={homeStyles.productPrice}>${product.price.toFixed(2)}</Text>
             </View>
         ))}
       </View>
@@ -74,11 +74,11 @@ const homeStyles = StyleSheet.create({
     backgroundColor: "white"
   },
   productContainer:{
-    width: 374,
+    width: "100%",
     height: 738.02,
     paddingTop: 10,
     paddingBottom: 10,
-    paddingLeft: 20,
+    paddingLeft: 13,
     paddingRight: 20,
     backgroundColor: "white",
     display: "flex",

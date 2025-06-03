@@ -70,7 +70,7 @@ export default function Favorites() {
               
               <Text style={productDetailsStyles.productName}>{favorite.name}</Text>
 
-              <Text style={productDetailsStyles.productPrice}>${favorite.price}</Text>
+              <Text style={productDetailsStyles.productPrice}>${favorite.price.toFixed(2)}</Text>
             </>
           ) : (
             <Text style={{ color: 'white' }}>No product selected.</Text>

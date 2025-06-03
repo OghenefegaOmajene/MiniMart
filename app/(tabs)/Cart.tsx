@@ -46,32 +46,37 @@ export default function Cart() {
             goToHome={true}  // Optional press handler
         />
 
-        <ScrollView style={cartStyles.cart}>
-          {cart.map((item, index) => (
-            <View key={index} style={cartStyles.cartItem}>
-              <Image source={imageMap[item.image] || iphone16} style={cartStyles.cartItemImg} />
-
-              <View style={cartStyles.cartInfo}>
-                <Text style={cartStyles.cartItemName}>{item.name}</Text>
-                <Text style={cartStyles.cartItemPrice}>${item.price}</Text>
-                <Text style={cartStyles.cartItemStatus}>In stock</Text>
-
-                <View style={cartStyles.cartItemControls}>
-                  <TouchableOpacity style={cartStyles.decreaseQty} onPress={() => decreaseQty(item.name)}>
-                    <DecreaseQtyIcon />
-                  </TouchableOpacity>
-                  <Text>{item.quantity}</Text>
-                  <TouchableOpacity style={cartStyles.increaseQty} onPress={() => increaseQty(item.name)}>
-                    <IncreaseQtyIcon />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={cartStyles.deleteProduct} onPress={() => removeFromCart(item.name)}>
-                    <TrashCanIcon />
-                  </TouchableOpacity>
+        {cart.length === 0 ? (
+          <View style={cartStyles.emptyCartContainer}>
+            <Text style={cartStyles.emptyCartText}>Your cart is empty</Text>
+          </View>
+        ) : (
+          <ScrollView style={cartStyles.cart}>
+            {cart.map((item, index) => (
+              <View key={index} style={cartStyles.cartItem}>
+                <Image source={imageMap[item.image] || iphone16} style={cartStyles.cartItemImg} />
+                <View style={cartStyles.cartInfo}>
+                  <Text style={cartStyles.cartItemName}>{item.name}</Text>
+                  <Text style={cartStyles.cartItemPrice}>${item.price}</Text>
+                  <Text style={cartStyles.cartItemStatus}>In stock</Text>
+                  <View style={cartStyles.cartItemControls}>
+                    <TouchableOpacity style={cartStyles.decreaseQty} onPress={() => decreaseQty(item.name)}>
+                      <DecreaseQtyIcon />
+                    </TouchableOpacity>
+                    <Text>{item.quantity}</Text>
+                    <TouchableOpacity style={cartStyles.increaseQty} onPress={() => increaseQty(item.name)}>
+                      <IncreaseQtyIcon />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={cartStyles.deleteProduct} onPress={() => removeFromCart(item.name)}>
+                      <TrashCanIcon />
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
-            </View>
-          ))}
-        </ScrollView>
+            ))}
+          </ScrollView>
+        )}
+
 
 
         <View style={cartStyles.orderInfo}>
@@ -257,4 +262,17 @@ const cartStyles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
+  emptyCartContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 60,
+    backgroundColor: "white",
+  },
+  emptyCartText: {
+    fontSize: 18,
+    color: '#94a3b8', // slate-400
+    fontFamily: 'IBMPlexSans-Medium',
+  },
+
 })
