@@ -43,9 +43,10 @@ const styles = StyleSheet.create({
     borderRadius: 8.62
   },
   productName: {
-    width: 162,
+    width: 140,
     height: 36,
-    fontFamily: "IBMPlexSans-Medium",
+    // backgroundColor: "red",
+    fontFamily: 'IBMPlexSans-Medium',
     fontWeight: "400",
     fontSize: 14,
     color: "rgba(0, 0, 0, 1)"
