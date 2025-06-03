@@ -9,6 +9,7 @@ import iphone16 from '../../assets/images/iphone16.png';
 import macbook from '../../assets/images/macbook.png';
 import googlepixel from '../../assets/images/googlepixel.png';
 import airpods from '../../assets/images/airpods.jpeg';
+import ProductCard from '@/components/ProductCard';
 
 const imageMap = {
   'iphone16.png': iphone16,
@@ -38,18 +39,13 @@ export default function Home() {
 
         <View style={homeStyles.productContainer}>
           {products.map((product, key) => (
-            <View key={key} style={homeStyles.product}>
-              <TouchableOpacity onPress={() => handleProductClick(product)} activeOpacity={0.7}>
-                <ImageBackground 
-                  source={imageMap[product.image]} 
-                  resizeMode="cover" 
-                  style={homeStyles.productImage}
-                />
-              </TouchableOpacity>
-              <Text style={homeStyles.productName}>{product.name}</Text>
-              <Text style={homeStyles.productPrice}>${product.price.toFixed(2)}</Text>
-            </View>
-        ))}
+            <ProductCard
+              key={key}
+              product={product}
+              imageSource={imageMap[product.image]}
+              onPress={handleProductClick}
+            />
+          ))}
       </View>
       </ScrollView>
       

@@ -8,7 +8,7 @@ import AddToCartNotification from '@/components/AddToCartNotification';
 import CartItemList from '@/components/CartItemList';
 
 export default function Cart() {
-  const { cart, increaseQty, decreaseQty, removeFromCart } = useCart();
+  const { cart } = useCart();
 
   const SHIPPING_FEE = 10;
 

@@ -71,6 +71,7 @@ const imageMap: Record<string, any> = {
   'airpods.png': airpods,
 };
 
+{/* Handles the UI of all CartItems to be rendered*/}
 export default function CartItem({ item }: { item: any }) {
   const { increaseQty, decreaseQty, removeFromCart } = useCart();
   const [pressedItem, setPressedItem] = useState<string | null>(null);
