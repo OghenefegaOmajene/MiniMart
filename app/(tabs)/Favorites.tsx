@@ -10,10 +10,11 @@ import AddToCartNotification from '@/components/AddToCartNotification';
 import macbook from '../../assets/images/macbook.png';
 import googlepixel from '../../assets/images/googlepixel.png';
 import airpods from '../../assets/images/airpods.png';
-
-
+import { useCart } from '@/store/useCart';
 
 export default function Favorites() {
+  const { addToCart } = useCart();
+
   const imageMap: Record<string, any> = {
     'iphone16.png': iphone16,
     'macbook.png': macbook,
@@ -21,12 +22,22 @@ export default function Favorites() {
     'airpods.png': airpods,
   };
 
-    const [showNotification, setShowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
     
-      const handleAddToCart = () => {
-        setShowNotification(true);
-        setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
-      };
+
+  const handleAddToCart = () => {
+    if (favorite) {
+      addToCart({
+        name: favorite.name,
+        price: favorite.price,
+        image: favorite.image,
+        quantity: 1,
+      });
+      setShowNotification(true);
+      setTimeout(() => setShowNotification(false), 3000);
+    }
+  };
+
 
   const favorite = useFavorites((state) => state.favorite);
 

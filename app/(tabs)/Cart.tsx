@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import BackNavigation from '@/components/BackNavigation'
 import iphone16 from '../../assets/images/iphone16.png';
+import { useCart } from '@/store/useCart';
+import macbook from '../../assets/images/macbook.png';
+import googlepixel from '../../assets/images/googlepixel.png';
+import airpods from '../../assets/images/airpods.png';
 import Button from '@/components/Button';
 import AddToCartNotification from '@/components/AddToCartNotification';
 import TrashCanIcon from '@/components/icons/TrashCanIcon';
@@ -10,6 +14,16 @@ import { IncreaseQtyIcon } from '@/components/icons/IncreaseQtyIcon';
 import { DecreaseQtyIcon } from '@/components/icons/DecreaseQtyIcon';
 
 export default function Cart() {
+  const { cart, increaseQty, decreaseQty, removeFromCart } = useCart();
+
+  
+  const imageMap: Record<string, any> = {
+    'iphone16.png': iphone16,
+    'macbook.png': macbook,
+    'googlepixel.png': googlepixel,
+    'airpods.png': airpods,
+  };
+
   const [showNotification, setShowNotification] = useState(false);
 
   const handleAddToCart = () => {
@@ -26,6 +40,33 @@ export default function Cart() {
         />
 
         <View style={cartStyles.cart}>
+          {cart.map((item, index) => (
+            <View key={index} style={cartStyles.cartItem}>
+              <Image source={imageMap[item.image] || iphone16} style={cartStyles.cartItemImg} />
+
+              <View style={cartStyles.cartInfo}>
+                <Text style={cartStyles.cartItemName}>{item.name}</Text>
+                <Text style={cartStyles.cartItemPrice}>${item.price}</Text>
+                <Text style={cartStyles.cartItemStatus}>In stock</Text>
+
+                <View style={cartStyles.cartItemControls}>
+                  <TouchableOpacity style={cartStyles.decreaseQty} onPress={() => decreaseQty(item.name)}>
+                    <DecreaseQtyIcon />
+                  </TouchableOpacity>
+                  <Text>{item.quantity}</Text>
+                  <TouchableOpacity style={cartStyles.increaseQty} onPress={() => increaseQty(item.name)}>
+                    <IncreaseQtyIcon />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={cartStyles.deleteProduct} onPress={() => removeFromCart(item.name)}>
+                    <TrashCanIcon />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          ))}
+        </View>
+
+        {/* <View style={cartStyles.cart}>
           <View style={cartStyles.cartItem}>
               <Image source={iphone16} style={cartStyles.cartItemImg}/>
 
@@ -48,7 +89,7 @@ export default function Cart() {
                 </View>
               </View>
           </View>
-        </View>
+        </View> */}
 
         {showNotification && (
           <View style={cartStyles.notificationWrapper}>
