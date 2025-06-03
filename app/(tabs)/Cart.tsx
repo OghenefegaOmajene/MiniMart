@@ -1,10 +1,13 @@
 import Header from '@/components/Header'
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import BackNavigation from '@/components/BackNavigation'
-import iphone16 from '../../assets/images/iphone16Select.png';
+import iphone16 from '../../assets/images/iphone16.png';
 import Button from '@/components/Button';
 import AddToCartNotification from '@/components/AddToCartNotification';
+import TrashCanIcon from '@/components/icons/TrashCanIcon';
+import { IncreaseQtyIcon } from '@/components/icons/IncreaseQtyIcon';
+import { DecreaseQtyIcon } from '@/components/icons/DecreaseQtyIcon';
 
 export default function Cart() {
   const [showNotification, setShowNotification] = useState(false);
@@ -26,11 +29,23 @@ export default function Cart() {
           <View style={cartStyles.cartItem}>
               <Image source={iphone16} style={cartStyles.cartItemImg}/>
 
-              <View>
+              <View style={cartStyles.cartInfo}>
                 <Text style={cartStyles.cartItemName}>Apple iPhone 16 128GB|Teal</Text>
                 <Text style={cartStyles.cartItemPrice}>$700</Text>
                 <Text style={cartStyles.cartItemStatus}>In stock</Text>
-                <View></View>
+
+                <View style={cartStyles.cartItemControls}>
+                    <TouchableOpacity style={cartStyles.decreaseQty}>
+                      <DecreaseQtyIcon/>
+                    </TouchableOpacity>
+                    <Text>1</Text>
+                    <TouchableOpacity style={cartStyles.increaseQty}>
+                      <IncreaseQtyIcon/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={cartStyles.deleteProduct}>
+                      <TrashCanIcon></TrashCanIcon>
+                    </TouchableOpacity>
+                </View>
               </View>
           </View>
         </View>
@@ -58,7 +73,7 @@ const cartStyles = StyleSheet.create({
   cart:{
     width: 374,
     height: 540,
-    backgroundColor: "coral",
+    backgroundColor: "white",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -76,12 +91,20 @@ const cartStyles = StyleSheet.create({
     flexDirection:"row",
     alignItems: "center",
     gap: 10,
+    paddingBottom: 10,
     borderRadius: 15
   },
   cartItemImg: {
     width: 102.87,
     height: 106.15,
     borderRadius: 5.65
+  },
+  cartInfo:{
+    width: 201.13,
+    height: 112,
+    display: "flex",
+    flexDirection: "column",
+    gap: 5
   },
   cartItemName: {
     color: "rgba(51, 65, 85, 1)",
@@ -100,5 +123,52 @@ const cartStyles = StyleSheet.create({
     fontWeight: 600,
     fontSize: 17,
     lineHeight: 32
+  },
+  cartItemControls:{
+    width: 201.13,
+    height: 36,
+    display: "flex",
+    flexDirection:"row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    // backgroundColor: "blue ",
+    gap: 16,
+  },
+  decreaseQty: {
+    backgroundColor: "rgba(226, 232, 240, 1)",
+    padding: 8,
+    borderRadius: 32,
+    width: 36,
+    height: 36,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  increaseQty: {
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: "rgba(226, 232, 240, 1)",
+    padding: 8,
+    borderRadius: 32,
+    width: 36,
+    height: 36,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  deleteProduct: {
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: "rgba(226, 232, 240, 1)",
+    padding: 8,
+    borderRadius: 24,
+    width: 36,
+    height: 36,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
   }
 })

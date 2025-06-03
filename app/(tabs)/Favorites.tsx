@@ -2,12 +2,31 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 import Header from '@/components/Header';
 import BackNavigation from '@/components/BackNavigation';
 import { useFavorites } from '@/store/useFavorites';
-import iphone16Select from '../../assets/images/iphone16Select.png';
+import iphone16 from '../../assets/images/iphone16.png';
 import {HeartIconToggle} from '../../components/icons/HeartIconToggle';
 import Button from '@/components/Button';
+import React, { useState } from 'react';
+import AddToCartNotification from '@/components/AddToCartNotification';
+import macbook from '../../assets/images/macbook.png';
+import googlepixel from '../../assets/images/googlepixel.png';
+import airpods from '../../assets/images/airpods.png';
+
+
 
 export default function Favorites() {
+  const imageMap: Record<string, any> = {
+    'iphone16.png': iphone16,
+    'macbook.png': macbook,
+    'googlepixel.png': googlepixel,
+    'airpods.png': airpods,
+  };
+
+    const [showNotification, setShowNotification] = useState(false);
     
+      const handleAddToCart = () => {
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
+      };
 
   const favorite = useFavorites((state) => state.favorite);
 
@@ -27,7 +46,11 @@ export default function Favorites() {
         <View style={productDetailsStyles.productDetails}>
           {favorite ? (
             <>
-              <Image source={iphone16Select} style={productDetailsStyles.productDetailsImg} />
+              <Image 
+                source={imageMap[favorite.image] || iphone16} 
+                style={productDetailsStyles.productDetailsImg}
+              />
+
               
               <View style={productDetailsStyles.productDetailsFavoriteBox}>
                 <HeartIconToggle/>
@@ -52,13 +75,26 @@ export default function Favorites() {
         </View>
       </ScrollView>
 
-      <Button btnName={'Add to Cart'}></Button>
+      {showNotification && (
+        <View style={productDetailsStyles.notificationWrapper}>
+          <AddToCartNotification onClose={() => setShowNotification(false)} />
+        </View>
+      )}
+      <Button btnName='Add to Cart' onPress={handleAddToCart}></Button>
     </>
   );
 }
 
 
 const productDetailsStyles = StyleSheet.create({
+  notificationWrapper: {
+    position: 'absolute',
+    // bottom: 110,
+    top: 60,
+    left: 20,
+    right: 20,
+    alignItems: 'center',
+  },
   productDetailsContainer: {
     width: 374,
     height: 846.76,
