@@ -16,6 +16,13 @@ import { DecreaseQtyIcon } from '@/components/icons/DecreaseQtyIcon';
 export default function Cart() {
   const { cart, increaseQty, decreaseQty, removeFromCart } = useCart();
 
+  const SHIPPING_FEE = 10;
+
+  const subtotal = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  const total = subtotal + SHIPPING_FEE;
   
   const imageMap: Record<string, any> = {
     'iphone16.png': iphone16,
@@ -74,15 +81,15 @@ export default function Cart() {
           
           <View style={cartStyles.orderInfoBox}>
             <Text>Subtotal</Text>
-            <Text>{}</Text>
+            <Text>${subtotal}</Text>
           </View>
           <View style={cartStyles.orderInfoBox}>
             <Text>Shipping</Text>
-            <Text>$10</Text>
+            <Text>${SHIPPING_FEE}</Text>
           </View>
           <View style={cartStyles.orderInfoBox}>
             <Text>Total</Text>
-            <Text>{}</Text>
+            <Text>${total}</Text>
           </View>
         </View>
 
@@ -91,7 +98,7 @@ export default function Cart() {
             <AddToCartNotification onClose={() => setShowNotification(false)} />
           </View>
         )}
-        <Button btnName='Checkout' onPress={handleAddToCart}></Button>
+        <Button btnName={`Checkout ($${total})`} onPress={handleAddToCart}/>
         
     </>
   )
@@ -107,7 +114,7 @@ const cartStyles = StyleSheet.create({
     alignItems: 'center',
   },
   cart:{
-    width: 374,
+    width: "100%",
     height: 540,
     backgroundColor: "white",
     display: "flex",
@@ -212,7 +219,7 @@ const cartStyles = StyleSheet.create({
     width: 69,
     height: 20,
     fontFamily: 'IBMPlexSans-Medium',
-    backgroundColor: "coral",
+    // backgroundColor: "coral",
     color: 'rgba(0, 0, 0, 1)',
     fontWeight: 700,
     fontSize: 14,
