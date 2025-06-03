@@ -13,7 +13,7 @@ export default function Button(props: { btnName: string; onPress: () => void }) 
 
 const buttonStyles = StyleSheet.create({
   buttonContainer:{
-    width: 375,
+    width: "100%",
     height: 94,
     display: "flex",
     flexDirection: "row",

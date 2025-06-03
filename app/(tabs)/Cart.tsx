@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import BackNavigation from '@/components/BackNavigation'
 import iphone16 from '../../assets/images/iphone16.png';
 import { useCart } from '@/store/useCart';
@@ -39,7 +39,7 @@ export default function Cart() {
             goToHome={true}  // Optional press handler
         />
 
-        <View style={cartStyles.cart}>
+        <ScrollView style={cartStyles.cart}>
           {cart.map((item, index) => (
             <View key={index} style={cartStyles.cartItem}>
               <Image source={imageMap[item.image] || iphone16} style={cartStyles.cartItemImg} />
@@ -64,32 +64,27 @@ export default function Cart() {
               </View>
             </View>
           ))}
-        </View>
+        </ScrollView>
 
-        {/* <View style={cartStyles.cart}>
-          <View style={cartStyles.cartItem}>
-              <Image source={iphone16} style={cartStyles.cartItemImg}/>
 
-              <View style={cartStyles.cartInfo}>
-                <Text style={cartStyles.cartItemName}>Apple iPhone 16 128GB|Teal</Text>
-                <Text style={cartStyles.cartItemPrice}>$700</Text>
-                <Text style={cartStyles.cartItemStatus}>In stock</Text>
-
-                <View style={cartStyles.cartItemControls}>
-                    <TouchableOpacity style={cartStyles.decreaseQty}>
-                      <DecreaseQtyIcon/>
-                    </TouchableOpacity>
-                    <Text>1</Text>
-                    <TouchableOpacity style={cartStyles.increaseQty}>
-                      <IncreaseQtyIcon/>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={cartStyles.deleteProduct}>
-                      <TrashCanIcon></TrashCanIcon>
-                    </TouchableOpacity>
-                </View>
-              </View>
+        <View style={cartStyles.orderInfo}>
+          <View style={cartStyles.orderInfoBox}>
+            <Text style={cartStyles.orderInfoTxt}>Order Info</Text>
           </View>
-        </View> */}
+          
+          <View style={cartStyles.orderInfoBox}>
+            <Text>Subtotal</Text>
+            <Text>{}</Text>
+          </View>
+          <View style={cartStyles.orderInfoBox}>
+            <Text>Shipping</Text>
+            <Text>$10</Text>
+          </View>
+          <View style={cartStyles.orderInfoBox}>
+            <Text>Total</Text>
+            <Text>{}</Text>
+          </View>
+        </View>
 
         {showNotification && (
           <View style={cartStyles.notificationWrapper}>
@@ -117,7 +112,7 @@ const cartStyles = StyleSheet.create({
     backgroundColor: "white",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    // alignItems: "center",
     gap: 15,
     paddingTop: 10,
     // paddingBottom: 10,
@@ -131,6 +126,7 @@ const cartStyles = StyleSheet.create({
     display: "flex",
     flexDirection:"row",
     alignItems: "center",
+    alignSelf: "center",
     gap: 10,
     paddingBottom: 10,
     borderRadius: 15
@@ -211,5 +207,33 @@ const cartStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center"
+  },
+  orderInfoTxt: {
+    width: 69,
+    height: 20,
+    fontFamily: 'IBMPlexSans-Medium',
+    backgroundColor: "coral",
+    color: 'rgba(0, 0, 0, 1)',
+    fontWeight: 700,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  orderInfoBox: {
+    width: 334,
+    height: 20,
+    display:"flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    // backgroundColor: "coral",
+  },
+  orderInfo: {
+    width: "100%",
+    height: 100,
+    backgroundColor: "white",
+    display:"flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
   }
 })

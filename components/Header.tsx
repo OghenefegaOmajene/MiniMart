@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: 'center',
     justifyContent: "center",
-    width: 375,
+    width: "100%",
     height: "auto",
     // height: 128,
     borderBottomWidth: 1,
@@ -61,11 +61,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    width :"100%",
     // backgroundColor: "coral",
     height: 28,
   },
   headerAddress:{
-    width: 327,
+    width: "100%",
     height: 28,
     // backgroundColor: "blue",
     display: "flex",
@@ -77,7 +78,8 @@ const styles = StyleSheet.create({
     fontFamily: "IBMPlexSans-Medium",
     fontSize: 10,
     fontWeight: 600,
-    color: "rgba(51, 65, 85, 1)"
+    color: "rgba(51, 65, 85, 1)",
+    width: 130
   },
 
   logo:{
