@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   deliveryAddress:{
-    fontFamily: "IBMPlexSans-Medium",
+    fontFamily: 'IBMPlexSans-Medium',
     fontSize: 10,
     fontWeight: 600,
     color: "rgba(51, 65, 85, 1)",

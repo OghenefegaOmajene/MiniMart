@@ -57,7 +57,7 @@ const backStyles = StyleSheet.create({
   backTxt: {
     width: 96,
     height: 23,
-    fontFamily: "IBMPlexSans-Medium",
+    fontFamily: 'IBMPlexSans-Bold',
     fontSize: 18, 
     fontWeight: 700,
     color: "rgba(0, 0, 0, 1)"

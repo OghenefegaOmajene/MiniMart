@@ -11,6 +11,7 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     'IBMPlexSans-Regular': require('../assets/fonts/IBMPlexSans-Regular.ttf'),
     'IBMPlexSans-Medium': require('../assets/fonts/IBMPlexSans-Medium.ttf'),
+    'IBMPlexSans-Bold': require('../assets/fonts/IBMPlexSans-Bold.ttf'),
     'IBMPlexMono-Medium': require('../assets/fonts/IBMPlexMono-Medium.ttf'),
   });
 

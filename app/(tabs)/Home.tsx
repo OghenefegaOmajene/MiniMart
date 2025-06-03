@@ -8,7 +8,7 @@ import { useFavorites } from '@/store/useFavorites';
 import iphone16 from '../../assets/images/iphone16.png';
 import macbook from '../../assets/images/macbook.png';
 import googlepixel from '../../assets/images/googlepixel.png';
-import airpods from '../../assets/images/airpods.png';
+import airpods from '../../assets/images/airpods.jpeg';
 
 const imageMap = {
   'iphone16.png': iphone16,

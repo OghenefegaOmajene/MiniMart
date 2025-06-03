@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import AddToCartNotification from '@/components/AddToCartNotification';
 import macbook from '../../assets/images/macbook.png';
 import googlepixel from '../../assets/images/googlepixel.png';
-import airpods from '../../assets/images/airpods.png';
+import airpods from '../../assets/images/airpods.jpeg';
 import { useCart } from '@/store/useCart';
 
 export default function Favorites() {
