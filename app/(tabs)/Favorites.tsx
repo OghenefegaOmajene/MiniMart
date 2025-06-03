@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Header from '@/components/Header';
 import BackNavigation from '@/components/BackNavigation';
 import { useFavorites } from '@/store/useFavorites';
 import iphone16Select from '../../assets/images/iphone16Select.png';
 import {HeartIconToggle} from '../../components/icons/HeartIconToggle';
+import Button from '@/components/Button';
 
 export default function Favorites() {
     
@@ -27,7 +28,7 @@ export default function Favorites() {
           {favorite ? (
             <>
               <Image source={iphone16Select} style={productDetailsStyles.productDetailsImg} />
-
+              
               <View style={productDetailsStyles.productDetailsFavoriteBox}>
                 <HeartIconToggle/>
               </View>
@@ -51,11 +52,7 @@ export default function Favorites() {
         </View>
       </ScrollView>
 
-      {/* <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => alert('Added to Cart')}>
-          <Text style={styles.buttonText}>Add to Cart</Text>
-        </TouchableOpacity>
-      </View> */}
+      <Button btnName={'Add to Cart'}></Button>
     </>
   );
 }
@@ -127,5 +124,31 @@ const productDetailsStyles = StyleSheet.create({
     position: "absolute",
     top: 10,
     right: 10
+  },
+  buttonContainer:{
+    width: 375,
+    height: 94,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white"
+  },
+  button: {
+    backgroundColor: "rgba(96, 181, 255, 1)",
+    width: 343,
+    height: 40,
+    borderRadius: 8,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonTxt: {
+    fontFamily: "IBMPlexSans-Medium",
+    color: "rgba(255, 255, 255, 1)",
+    fontWeight: 700,
+    fontSize: 14, 
+    lineHeight: 20
   }
 })

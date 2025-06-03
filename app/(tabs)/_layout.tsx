@@ -50,20 +50,40 @@ export default function TabLayout() {
             }}
         />
 
-        <Tabs.Screen 
+        {/* <Tabs.Screen 
             name="Cart"
             options={{
               tabBarIcon: ({ focused }) =>
               focused ? <CartIconActive /> : <CartIcon />,
             }}
-        />
+        /> */}
+
         <Tabs.Screen 
+          name="Cart"
+          options={{
+            tabBarStyle: { display: 'none' }, // hides tab bar on this screen
+            headerShown: false,
+            tabBarIcon: ({ focused }) =>
+            focused ? <CartIconActive /> : <CartIcon />,
+          }}
+        />
+
+        <Tabs.Screen 
+          name="Favorites"
+          options={{
+            tabBarStyle: { display: 'none' }, // hides tab bar on this screen
+            headerShown: false,
+            tabBarIcon: ({ focused }) =>
+              focused ? <FavoriteIconActive /> : <FavoriteIcon />,
+          }}
+        />
+        {/* <Tabs.Screen 
             name="Favorites"
             options={{
               tabBarIcon: ({ focused }) =>
               focused ? <FavoriteIconActive /> : <FavoriteIcon />,
             }}
-        />
+        /> */}
         <Tabs.Screen 
             name="Profile"
             options={{

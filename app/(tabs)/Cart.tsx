@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import BackNavigation from '@/components/BackNavigation'
 import iphone16 from '../../assets/images/iphone16Select.png';
+import Button from '@/components/Button';
 
 export default function Cart() {
   return (
@@ -24,6 +25,9 @@ export default function Cart() {
               </View>
           </View>
         </View>
+
+        <Button btnName='Checkout'></Button>
+        
     </>
   )
 }
@@ -31,12 +35,16 @@ export default function Cart() {
 const cartStyles = StyleSheet.create({
   cart:{
     width: 374,
-    height: 590,
+    height: 540,
     backgroundColor: "coral",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: 15
+    gap: 15,
+    paddingTop: 10,
+    // paddingBottom: 10,
+    // paddingRight: 20,
+    // paddingLeft: 20
   },
   cartItem: {
     width: 334,
