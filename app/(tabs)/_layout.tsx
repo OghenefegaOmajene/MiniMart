@@ -9,9 +9,13 @@ import { FavoriteIconActive } from '@/components/icons/FavoriteIconActive';
 import { FavoriteIcon } from '@/components/icons/FavoriteIcon';
 import { ProfileIconActive } from '@/components/icons/ProfileIconActive';
 import { ProfileIcon } from '@/components/icons/ProfileIcon';
+import { useCart } from '@/store/useCart';
 // import {COLORS} from "@/constants/theme"
 
 export default function TabLayout() {
+  const { cart } = useCart();
+  const totalItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <Tabs
         screenOptions={{
@@ -50,15 +54,8 @@ export default function TabLayout() {
             }}
         />
 
-        {/* <Tabs.Screen 
-            name="Cart"
-            options={{
-              tabBarIcon: ({ focused }) =>
-              focused ? <CartIconActive /> : <CartIcon />,
-            }}
-        /> */}
 
-        <Tabs.Screen 
+        {/* <Tabs.Screen 
           name="Cart"
           options={{
             tabBarStyle: { display: 'none' }, // hides tab bar on this screen
@@ -66,7 +63,21 @@ export default function TabLayout() {
             tabBarIcon: ({ focused }) =>
             focused ? <CartIconActive /> : <CartIcon />,
           }}
+        /> */}
+
+        <Tabs.Screen 
+          name="Cart"
+          options={{
+            tabBarStyle: { display: 'none' }, // show it in tab bar
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <CartIconActive/>
+              ) : (
+                <CartIcon count={totalItemCount} />
+              ),
+          }}
         />
+
 
         <Tabs.Screen 
           name="Favorites"
