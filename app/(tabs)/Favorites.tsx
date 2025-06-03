@@ -54,6 +54,7 @@ export default function Favorites() {
       <Header showSearch={false} />
       <BackNavigation text="Go Back" goToHome={true} />
       <ScrollView style={productDetailsStyles.productDetailsContainer}>
+        <View style={productDetailsStyles.cartContent}>
         <View style={productDetailsStyles.productDetails}>
           {favorite ? (
             <>
@@ -74,6 +75,7 @@ export default function Favorites() {
           ) : (
             <Text style={{ color: 'white' }}>No product selected.</Text>
           )}
+        </View>
         </View>
 
         <View style={productDetailsStyles.productDetailsTxtBox}>
@@ -98,6 +100,12 @@ export default function Favorites() {
 
 
 const productDetailsStyles = StyleSheet.create({
+  cartContent: {
+    flex: 1,
+    alignItems: 'center',        // Or 'flex-start', 'flex-end'
+    justifyContent: 'flex-start' // Or 'center', 'space-between', etc.
+  },
+
   notificationWrapper: {
     position: 'absolute',
     // bottom: 110,
@@ -107,7 +115,7 @@ const productDetailsStyles = StyleSheet.create({
     alignItems: 'center',
   },
   productDetailsContainer: {
-    width: 374,
+    width: "100%",
     height: 846.76,
     backgroundColor: "white",
     display: "flex",

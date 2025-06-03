@@ -244,7 +244,7 @@ export default function AddToCartNotification({ onClose }: { onClose: () => void
     // Auto-close after 3s
     const timeout = setTimeout(() => {
       triggerClose();
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timeout);
   }, []);

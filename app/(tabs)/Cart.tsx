@@ -80,16 +80,16 @@ export default function Cart() {
           </View>
           
           <View style={cartStyles.orderInfoBox}>
-            <Text>Subtotal</Text>
-            <Text>${subtotal}</Text>
+            <Text style={cartStyles.orderInfoTxt2}>Subtotal</Text>
+            <Text style={cartStyles.orderInfoTxt2}>${subtotal}</Text>
           </View>
           <View style={cartStyles.orderInfoBox}>
-            <Text>Shipping</Text>
-            <Text>${SHIPPING_FEE}</Text>
+            <Text style={cartStyles.orderInfoTxt2}>Shipping</Text>
+            <Text style={cartStyles.orderInfoTxt2}>${SHIPPING_FEE}</Text>
           </View>
           <View style={cartStyles.orderInfoBox}>
-            <Text>Total</Text>
-            <Text>${total}</Text>
+            <Text style={cartStyles.orderInfoTxt2}>Total</Text>
+            <Text style={cartStyles.total}>${total}</Text>
           </View>
         </View>
 
@@ -242,5 +242,19 @@ const cartStyles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-  }
+  },
+  orderInfoTxt2: {
+    fontFamily: 'IBMPlexSans-Medium',
+    color: 'rgba(0, 0, 0, 1)',
+    fontWeight: 500,
+    fontSize: 12,
+    lineHeight: 20,
+  },
+  total: {
+    fontFamily: 'IBMPlexSans-Medium',
+    color: 'rgba(0, 0, 0, 1)',
+    fontWeight: 700,
+    fontSize: 14,
+    lineHeight: 20,
+  },
 })

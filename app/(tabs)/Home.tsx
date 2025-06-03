@@ -1,62 +1,4 @@
-// import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native'
-// import Header from '@/components/Header'
-// import BackNavigation from '@/components/BackNavigation'
-// import products from '../../json/products.json'
-
-// // Import your images at the top of the file
-// import iphone16 from '../../assets/images/iphone16.png';
-// import macbook from '../../assets/images/macbook.png';
-// import googlepixel from '../../assets/images/googlepixel.png';
-// import airpods from '../../assets/images/airpods.png';
-
-// // Create an image mapping object
-// const imageMap = {
-//   'iphone16.png': iphone16,
-//   'macbook.png': macbook,
-//   'googlepixel.png': googlepixel,
-//   'airpods.png': airpods
-// };
-
-// export default function Home() {
-
-//   return (
-//     <>
-//       <Header showSearch={true} />
-//       <BackNavigation 
-//         text="Technology"  // Required string prop
-//         goToHome={true}  // Optional press handler
-//       />
-
-//       <View style={homeStyles.smartphoneTxtBox}>
-//         <Text style={homeStyles.smartphoneTxt}>Smartphones, Laptops & Assecories</Text>
-//       </View>
-      
-
-//       <View style={homeStyles.productContainer}>
-//         {products.map((product, key) => (
-//           <View key={key} style={homeStyles.product}>
-//             <TouchableOpacity 
-//               // style={backStyles.backComponent} 
-//               // onPress={handlePress}
-//               activeOpacity={0.7}
-//             >
-//               <ImageBackground 
-//                 source={imageMap[product.image]} 
-//                 resizeMode="cover" 
-//                 style={homeStyles.productImage}
-//               />
-//             </TouchableOpacity>
-//             <Text style={homeStyles.productName}>{product.name}</Text>
-//             <Text style={homeStyles.productPrice}>${product.price}</Text>
-//           </View>
-//         ))}
-        
-//       </View>
-//     </>
-//   )
-// }
-
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 import Header from '@/components/Header';
 import BackNavigation from '@/components/BackNavigation';
 import products from '../../json/products.json';
@@ -88,25 +30,29 @@ export default function Home() {
     <>
       <Header showSearch={true} />
       <BackNavigation text="Technology" goToHome={true} />
-      <View style={homeStyles.smartphoneTxtBox}>
-        <Text style={homeStyles.smartphoneTxt}>Smartphones, Laptops & Accessories</Text>
-      </View>
 
-      <View style={homeStyles.productContainer}>
-        {products.map((product, key) => (
-          <View key={key} style={homeStyles.product}>
-            <TouchableOpacity onPress={() => handleProductClick(product)} activeOpacity={0.7}>
-              <ImageBackground 
-                source={imageMap[product.image]} 
-                resizeMode="cover" 
-                style={homeStyles.productImage}
-              />
-            </TouchableOpacity>
-            <Text style={homeStyles.productName}>{product.name}</Text>
-            <Text style={homeStyles.productPrice}>${product.price}</Text>
-          </View>
+      <ScrollView>
+        <View style={homeStyles.smartphoneTxtBox}>
+          <Text style={homeStyles.smartphoneTxt}>Smartphones, Laptops & Accessories</Text>
+        </View>
+
+        <View style={homeStyles.productContainer}>
+          {products.map((product, key) => (
+            <View key={key} style={homeStyles.product}>
+              <TouchableOpacity onPress={() => handleProductClick(product)} activeOpacity={0.7}>
+                <ImageBackground 
+                  source={imageMap[product.image]} 
+                  resizeMode="cover" 
+                  style={homeStyles.productImage}
+                />
+              </TouchableOpacity>
+              <Text style={homeStyles.productName}>{product.name}</Text>
+              <Text style={homeStyles.productPrice}>${product.price}</Text>
+            </View>
         ))}
       </View>
+      </ScrollView>
+      
     </>
   );
 }
