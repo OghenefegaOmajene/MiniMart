@@ -25,7 +25,7 @@ const buttonStyles = StyleSheet.create({
     paddingTop: 10
   },
   button: {
-    backgroundColor: "rgba(96, 181, 255, 1)",
+    backgroundColor: "#60b5ff",
     width: 343,
     height: 40,
     borderRadius: 8,

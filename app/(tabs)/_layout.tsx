@@ -87,6 +87,7 @@ export default function TabLayout() {
         <Tabs.Screen 
             name="Profile"
             options={{
+              tabBarStyle: { display: 'none' },
               tabBarIcon: ({ focused }) =>
               focused ? <ProfileIconActive /> : <ProfileIcon />,
             }}

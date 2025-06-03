@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import BackNavigation from '@/components/BackNavigation';
 import products from '../../json/products.json';
 import { useRouter } from 'expo-router';
-import { useFavorites } from '@/store/useFavorites'; // 👈
+import { useFavorites } from '@/store/useFavorites'; 
 
 import iphone16 from '../../assets/images/iphone16.png';
 import macbook from '../../assets/images/macbook.png';
@@ -69,7 +69,7 @@ const homeStyles = StyleSheet.create({
     left: 16,
     fontSize: 18,
     fontWeight: 500,
-    fontFamily: "IBMPlexSans-Medium",
+    fontFamily: 'IBMPlexMono-Medium',
     color: "rgba(0, 0, 0, 1)",
     backgroundColor: "white"
   },

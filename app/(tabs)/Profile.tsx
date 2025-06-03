@@ -1,9 +1,8 @@
 import { View, Text } from 'react-native'
+import Favorites from './Favorites'
 
 export default function Profile() {
   return (
-    <View>
-      <Text>Profile</Text>
-    </View>
+    <Favorites></Favorites>
   )
 }
