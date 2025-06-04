@@ -34,9 +34,12 @@ cd MiniMart
 ```
 ### 2. Install Dependencies
 
+```bash
 npm install
 
+```
 ### 3. Run Development Server
 
+```bash
 npx expo start
 
