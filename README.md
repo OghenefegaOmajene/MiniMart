@@ -27,17 +27,17 @@ A modern three-screen e-commerce mobile application built using React Native and
 
 ### 1. Clone the Repository
 
-```bash
-git clone https://github.com/OghenefegaOmajene/MiniMart.git
-cd MiniMart
-
 ### 2. Install Dependencies
-
-```bash
-npm install
 
 ### 3. Run Development Server
 
 ```bash
+git clone https://github.com/OghenefegaOmajene/MiniMart.git
+cd MiniMart
+
+
+npm install
+
+
 npx expo start
 
