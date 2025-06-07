@@ -40,12 +40,6 @@ export default function TabLayout() {
             // tabBarActiveTintColor: Colors.primary
         }}
     >
-        {/* <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={() => alert('Added to Cart')}>
-            <Text style={styles.buttonText}>Add to Cart</Text>
-          </TouchableOpacity>
-        </View> */}
-
         <Tabs.Screen 
             name="Home"
             options={{
@@ -53,17 +47,6 @@ export default function TabLayout() {
               focused ? <HomeIconActive /> : <HomeIcon />,
             }}
         />
-
-
-        {/* <Tabs.Screen 
-          name="Cart"
-          options={{
-            tabBarStyle: { display: 'none' }, // hides tab bar on this screen
-            headerShown: false,
-            tabBarIcon: ({ focused }) =>
-            focused ? <CartIconActive /> : <CartIcon />,
-          }}
-        /> */}
 
         <Tabs.Screen 
           name="Cart"
@@ -88,13 +71,7 @@ export default function TabLayout() {
               focused ? <FavoriteIconActive /> : <FavoriteIcon />,
           }}
         />
-        {/* <Tabs.Screen 
-            name="Favorites"
-            options={{
-              tabBarIcon: ({ focused }) =>
-              focused ? <FavoriteIconActive /> : <FavoriteIcon />,
-            }}
-        /> */}
+        
         <Tabs.Screen 
             name="Profile"
             options={{

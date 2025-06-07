@@ -102,8 +102,8 @@ export default function ProductDetails() {
 const productDetailsStyles = StyleSheet.create({
   cartContent: {
     flex: 1,
-    alignItems: 'center',        // Or 'flex-start', 'flex-end'
-    justifyContent: 'flex-start' // Or 'center', 'space-between', etc.
+    alignItems: 'center',        
+    justifyContent: 'flex-start' 
   },
 
   notificationWrapper: {
